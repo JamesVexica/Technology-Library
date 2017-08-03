@@ -1,0 +1,138 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vexica Voltage Drop Calculator</title>
+    <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/site.css">
+  </head>
+  <body>
+<!-- Voltage Radio -->
+	<div class="row">
+		<div class="small-12 medium-6 columns">
+			<center>
+				<h3 id="volName">Voltage (V)</h3>
+				<fieldset id="Voltage">
+					<Legend></Legend>
+					<input type="radio" name="Voltage" value="5" id="Voltage5"><label for="Voltage5">5</label>
+					<input type="radio" name="Voltage" value="12" id="Voltage12"><label for="Voltage12">12</label>
+					<input type="radio" name="Voltage" value="24" id="Voltage24"><label for="Voltage24">24</label>
+					<input type="radio" name="Voltage" value="48" id="Voltage48"><label for="Voltage48">48</label>
+				</fieldset>
+			</center>
+		</div>
+<!-- Cable CSA Radio -->
+		<div class="small-12 medium-6 columns">
+			<center>
+				<h3 id="cabName">Cable CSA (mm<sup>2</sup>)</h3>
+				<fieldset id="CableCSA">
+					<Legend></Legend>
+					<input type="radio" name="CableCSA" value="0.0245" id="Cable0.75" required><label for="Cable0.75">0.75</label>
+					<input type="radio" name="CableCSA" value="0.012" id="Cable1.5" required><label for="Cable1.5">1.5</label>
+					<input type="radio" name="CableCSA" value="0.0073" id="Cable2.5" required><label for="Cable2.5">2.5</label>
+					<br>
+					<input type="radio" name="CableCSA" value="0.0046" id="Cable4.0" required><label for="Cable4.0">4.0</label>
+					<input type="radio" name="CableCSA" value="0.0032" id="Cable6.0" required><label for="Cable6.0">6.0</label>
+				</fieldset>
+			</center>
+		</div>
+	</div>
+<!-- Supply Wattage Drop Down -->
+	<div class="row">
+	<div class="small-12 large-6 columns">
+		<center>
+			<h3 id="supName">Supply Wattage (W)</h3>
+				<select id="SupplyWattage">
+					<option name="SupplyWattage" value="0"></option>
+					<option name="SupplyWattage" value="15">15</option>
+					<option name="SupplyWattage" value="25">25</option>
+					<option name="SupplyWattage" value="35">35</option>
+					<option name="SupplyWattage" value="50">50</option>
+					<option name="SupplyWattage" value="75">75</option>
+					<option name="SupplyWattage" value="100">100</option>
+					<option name="SupplyWattage" value="150">150</option>
+					<option name="SupplyWattage" value="200">200</option>
+					<option name="SupplyWattage" value="240">240</option>
+					<option name="SupplyWattage" value="350">350</option>
+					<option name="SupplyWattage" value="600">600</option>
+					<option name="SupplyWattage" value="750">750</option>
+					<option name="SupplyWattage" value="1000">1000</option>
+					<option name="SupplyWattage" value="1500">1500</option>
+				</select>
+		</center>
+	</div>
+<!-- Tolerance Drop Down-->
+	<div class="small-12 large-6 columns">
+		<center>
+			<h3 id="tolName">Tolerance (%)</h3>
+				<select id="Tolerance">
+					<option name="Tolerance" value="0"></option>
+					<option name="Tolerance" value="0.02">2</option>
+					<option name="Tolerance" value="0.05">5</option>
+					<option name="Tolerance" value="0.06">6</option>
+					<option name="Tolerance" value="0.07">7</option>
+					<option name="Tolerance" value="0.08">8</option>
+					<option name="Tolerance" value="0.09">9</option>
+					<option name="Tolerance" value="0.10">10</option>
+					<option name="Tolerance" value="0.11">11</option>
+					<option name="Tolerance" value="0.12">12</option>
+					<option name="Tolerance" value="0.13">13</option>
+					<option name="Tolerance" value="0.14">14</option>
+					<option name="Tolerance" value="0.15">15</option>
+				</select>
+		</center>
+	</div>
+	</div>
+<!-- Cable Length Slider -->
+	
+	<div class="row">
+		<center>
+			<h3 id="cabLName">Cable Length (Meters)</h3>
+			<div class="small-8 medium-9 large-10 columns">
+				<div id="CurrentSlider2" class="slider disabled" data-slider data-initial-start="0" data-end="300">
+					<span class="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="CableLength"></span>
+					<span class="slider-fill" data-slider-fill></span>
+				</div>
+			</div>
+			<div class="small-4 medium-3 large-2 columns">
+				<input type="number" id="CableLength">
+			</div>
+		</center>
+	</div>
+			<!-- Current Slider -->
+	<div class="row">
+		<center>	
+			<h3 id="curName">Current (Amps)</h3>
+			<div class="small-8 medium-9 large-10 columns" >
+				<div id="CurrentSlider1" class="slider disabled" data-slider data-initial-start="0" data-end="45">
+					<span class="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="Current"></span>
+					<span class="slider-fill" data-slider-fill></span>
+				</div>
+			</div>
+			<div class="small-4 medium-3 large-2 columns">
+				<input type="number" id="Current">
+			</div>
+		</center>
+	</div>
+	<!-- Results -->
+	<div class="row">
+	<center>
+	<h4 id="End" class="button alert">Voltage Drop = <span id="VoltageDrop">0</span> @ <span id="VoltageAmps">0</span> Amps</h4><br>
+	<span id="VoltageCheck"><img src="img/thumbdown.png"></span>
+	</center>
+	</div>
+
+
+	
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/calc.js"></script>
+
+
+  </body>
+</html>
