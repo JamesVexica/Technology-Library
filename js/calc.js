@@ -50,7 +50,7 @@ function vDropCalc(){
 
 
 function vDropMaxCalc(){
-	vDropMax = Tolerance * SupplyWattage;
+	vDropMax = Tolerance * Voltage;
 
 	if (vDrop == 0){
 		document.getElementById("VoltageCheck").innerHTML = "<img src='img/thumbdown.png'>";
